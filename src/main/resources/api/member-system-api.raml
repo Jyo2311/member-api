@@ -1,0 +1,83 @@
+#%RAML 1.0
+title: member system api
+description: this raml file is describe the structure of all member api
+/member:
+ /{memberid}:
+   get:
+     description: this api will fetch customer details from sfdc
+     headers:
+      X-Cms-TransactionId:
+        required: true
+        minLength: 36
+        maxLength: 36
+        type: string
+        example: "e0b05193-97f3-4c9b-b077-5f65c051c53b"
+      X-Cms-Channel:
+        required: true
+        type: string
+        enum:
+          - mobile
+          - webapp
+           example:"mobile"
+      X-Cms-ClientId:
+        required: true
+        type: string
+        example: "e0b05193-97f3-4c9b-b077-5f65c051c53b"
+      X-Cms-ClientSecret:
+        required: true
+        type: string
+        example: "e0b05193-97f3-4c9b-b077-5f65c051c53b"
+      X-Cms-OriginLanguage:
+        required: true
+        type: string
+        enum:
+          - en
+          - cn
+          - ch
+        example: "en"
+      X-Cms-OriginMarket:
+        required: true
+        type: string
+        enum:
+          - India
+          - us  
+          - uk
+        example: "India"
+     responses:
+       200:
+        body:
+          application/json:
+            description: This is success response for the get member api
+            type: object
+            properties:
+              FirstName:
+                type: string
+                required: true
+                example: "Jyo"
+              LastName:
+                type: string
+                required: true
+                example: "Jyothi"
+              Maritalstatus:
+                type: string
+                required: true
+                example: "Married"
+              Gender:
+                type: string
+                required: true
+                example: "Female"
+              Occupation:
+                type: string
+                required: true
+                example: "engenieer"  
+                  
+
+
+             
+    
+                     
+
+                          
+
+
+          
